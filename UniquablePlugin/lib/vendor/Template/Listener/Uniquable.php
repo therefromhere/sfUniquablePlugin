@@ -23,7 +23,6 @@
  * Listener for the Uniquable behaviour which automatically sets the 
  * GUID when a record is inserted
  *
- * @author John
  * @author John Carter <john@therefromhere.org>
  */
 class Doctrine_Template_Listener_Uniquable extends Doctrine_Record_Listener
