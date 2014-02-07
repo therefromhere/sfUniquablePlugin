@@ -33,7 +33,7 @@ class Doctrine_Template_Uniquable extends Doctrine_Template
      */
     protected $_options = array(
         'name'    => 'uuid',
-        'type'    => 'char',
+        'type'    => 'string',
         'length'  => 36,
         'options' => array(
             'notnull' => false
@@ -44,6 +44,10 @@ class Doctrine_Template_Uniquable extends Doctrine_Template
 
     public function setTableDefinition()
     {
+      $name = $this->_options['name'];
+      
+      $this->hasColumn($name, $this->_options['type'], $this->_options['length'], $this->_options['options']);
+      
       $this->_listener = new Doctrine_Template_Listener_Uniquable($this->_options);
       $this->addListener($this->_listener);
     }
